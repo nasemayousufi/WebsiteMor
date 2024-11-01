@@ -1,0 +1,152 @@
+{% extends "home/layout.html" %}
+
+{% block content %}
+{% load static %}
+<style>
+    .card-img-small {
+        width: 100%; /* Adjusted to fit within card */
+        height: 300px;
+        object-fit: cover; /* Corrected typo */
+        margin-top: 40px;
+    }
+    .card-price {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #28a745; /* Green color for the price */
+        margin-bottom: 10px; /* Space between price and button */
+    }
+    .btn-primary {
+        background-color: black;
+        border-color: black;
+        color: white;
+    }
+    .btn-primary:hover {
+        background-color: #333;
+        border-color: #333;
+    }
+
+    
+</style>
+
+<div class="row">
+    <!-- First Item -->
+    <div class="col-md-4">
+        <div class="card mb-4" style="width: 18rem;">
+            <a href="{% url 'item_detail' 1 %}">
+                <img src="{% static 'admin/1.png' %}" class="card-img-top card-img-small" alt="1.png">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">Party Dress</h5>
+                <p class="card-price">$49.99</p>
+                <p class="card-text">It has good quality</p>
+                <a href="{% url 'add_to_cart' item_id=1 %}" class="btn btn-primary">Add to cart</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Item -->
+    <div class="col-md-4">
+        <div class="card mb-4" style="width: 18rem;">
+            <a href="{% url 'item_detail' 2 %}">
+                <img src="{% static 'admin/2.png' %}" class="card-img-top card-img-small" alt="2.png">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">Party Dress</h5>
+                <p class="card-price">$65.99</p>
+                <p class="card-text">It has good quality</p>
+                <a href="{% url 'add_to_cart' item_id=1 %}" class="btn btn-primary">Add to cart</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Third Item -->
+    <div class="col-md-4">
+        <div class="card mb-4" style="width: 18rem;">
+            <a href="{% url 'item_detail' 3 %}">
+                <img src="{% static 'admin/3.png' %}" class="card-img-top card-img-small" alt="3.png">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">Party Dress</h5>
+                <p class="card-price">$70.99</p>
+                <p class="card-text">It has good quality</p>
+                <a href="{% url 'add_to_cart' item_id=1 %}" class="btn btn-primary">Add to cart</a>
+
+            </div>
+        </div>
+    </div>
+</div> <!-- End of row -->
+
+<div class="row">
+    <!-- Fourth Item -->
+    <div class="col-md-4">
+        <div class="card mb-4" style="width: 18rem;">
+            <a href="{% url 'item_detail' 4 %}">
+                <img src="{% static 'admin/4.png' %}" class="card-img-top card-img-small" alt="4.png">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">Party Dress</h5>
+                <p class="card-price">$80.99</p>
+                <p class="card-text">It has good quality</p>
+                <a href="{% url 'add_to_cart' item_id=1 %}" class="btn btn-primary">Add to cart</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Fifth Item -->
+    <div class="col-md-4">
+        <div class="card mb-4" style="width: 18rem;">
+            <a href="{% url 'item_detail' 5 %}">
+                <img src="{% static 'admin/5.png' %}" class="card-img-top card-img-small" alt="5.png">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">Gown Dress</h5>
+                <p class="card-price">$55.99</p>
+                <p class="card-text">It has good quality</p>
+                <a href="{% url 'add_to_cart' item_id=1 %}" class="btn btn-primary">Add to cart</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Sixth Item -->
+    <div class="col-md-4">
+        <div class="card mb-4" style="width: 18rem;">
+            <a href="{% url 'item_detail' 6 %}">
+                <img src="{% static 'admin/6.png' %}" class="card-img-top card-img-small" alt="6.png">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">Party Dress</h5>
+                <p class="card-price">$49.99</p>
+                <p class="card-text">It has good quality</p>
+                <a href="{% url 'add_to_cart' item_id=1 %}" class="btn btn-primary">Add to cart</a>
+
+            </div>
+        </div>
+    </div>
+</div> <!-- End of row -->
+
+
+<div class="row">
+    <!-- Loop through items -->
+    {% for item in items %}
+    <div class="col-md-4">
+        <div class="card mb-4" style="width: 18rem;">
+            <a href="{% url 'item_detail' item.id %}">
+                <img src="{{ item.image.url }}" class="card-img-top card-img-small" alt="{{ item.name }}">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">{{ item.name }}</h5>
+                <p class="card-price">${{ item.price }}</p>
+                <p class="card-text">{{ item.description }}</p>
+                <!-- Add to Cart button -->
+                <a href="{% url 'add_to_cart' item.id %}" class="btn btn-primary">Add to cart</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

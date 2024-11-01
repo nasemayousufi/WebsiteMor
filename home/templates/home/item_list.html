@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item List</title>
+</head>
+<body>
+    <h1>Item List</h1>
+    {% for item in items %}
+        <div>
+            <h2><a href="{% url 'item_detail' item.id %}">{{ item.name }}</a></h2>
+            
+            <!-- Display item image if available -->
+            {% if item.image %}
+                <img src="{{ item.image.url }}" alt="{{ item.name }}" style="width:100px; height:auto;">
+            {% endif %}
+            
+            <p>Price: ${{ item.price }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>

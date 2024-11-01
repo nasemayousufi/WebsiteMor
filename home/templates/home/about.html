@@ -1,0 +1,63 @@
+{% extends "home/layout.html" %}
+{% load static %}  <!-- This line is essential to use the static tag -->
+
+{% block content %}
+<style>
+    .about-container .profile-image {
+        margin-top: 60px; /* Adjust the value as needed */
+        display: flex;
+        gap: 40px; /* Optional: Add some horizontal space between the images */
+    }
+</style>
+
+
+
+
+
+<div class="about-container">
+    <div class="profile-image">
+        <img src="{% static 'admin/1.png' %}" alt="1.png" style="width: 200px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)margin-t0p =30px;" />
+        <img src="{% static 'admin/4.png' %}" alt="4.png" style="width: 200px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
+        <img src="{% static 'admin/2.png' %}" alt="2.png" style="width: 200px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
+        <img src="{% static 'admin/3.png' %}" alt="3.png" style="width: 200px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
+        <img src="{% static 'admin/5.png' %}" alt="5.png" style="width: 200px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
+        
+    </div>
+    
+    <div class="content">
+        <div class="description-container">
+            <div class="description">
+                <h2>About Us</h2>
+                <p>
+                    Founded in Melbourne, Australia and loved across the globe, we're known for our effortlessly wearable and timeless collections that celebrate modern femininity.
+                    We trade as Forever New in over 25 countries and as Ever New in Canada, the US, and the Philippines with almost 400 retail and concession stores globally.
+                    While we’re a global brand, behind the scenes we’re a collective of close friends: fashion enthusiasts, designers, and in-store experts, who work non-stop to help our customers embrace and elevate their own personal style.
+                    Each collection is designed in Australia with a unique blend of seasonal trends, feminine silhouettes, and of-the-moment detailing, giving you the confidence to feel beautiful in every moment.
+                </p>
+            </div>
+        </div>
+        
+        <img src="{% static 'admin/16.png' %}" alt="16.png" style="width: 1250px;" />
+
+        <div class="description-container">
+            <div class="description">
+                <p>
+                    “We want every moment—no matter how big or small—to feel like it belongs to her. Like she owns it. Wherever she goes, we give her the self-belief and confidence to make the seemingly insignificant, unforgettable.”
+                </p>
+            </div>
+        </div>
+        
+        <div class="video-container">
+            <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/DNypfXJTCPU"
+                title="YouTube video player"
+                style="border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            ></iframe>
+        </div>
+    </div>
+</div>
+{% endblock %}
